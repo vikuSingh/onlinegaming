@@ -1,4 +1,4 @@
-package com.integra.onlinegaming.serviceimpl;
+package com.integra.onlinegaming.serviceImpl;
 
 import java.io.Serializable;
 
