@@ -17,7 +17,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	private EmployeeDao employeeregistrationDao;
 
-	public void Employee(EmployeeRequestDto employeeRegistrationrequestDto) {
+	public void employeereg(EmployeeRequestDto employeeRegistrationrequestDto) {
 		Serializable serializable = null;
 		Employee employeereg = new Employee();
 		employeereg.setEmployeename(employeeRegistrationrequestDto.getEmployeename());

@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value ="/register")
+@RequestMapping(value ="/employee")
 public class EmployeeController {
 	@Autowired
 	private  EmployeeService employeeService;
-	public ResponseEntity<EmployeeRequestDto> register(@ModelAttribute EmployeeRequestDto employeeRequestDto) {
+	public ResponseEntity<EmployeeRequestDto> employeereg(@ModelAttribute EmployeeRequestDto employeeRequestDto) {
 		if(employeeRequestDto==null) {
-			//employeeService.register(employeeRequestDto);
+			employeeService.employeereg(employeeRequestDto);
 			return new ResponseEntity<EmployeeRequestDto>(HttpStatus.OK);
 		}
 		return new ResponseEntity<EmployeeRequestDto>(HttpStatus.INTERNAL_SERVER_ERROR);
