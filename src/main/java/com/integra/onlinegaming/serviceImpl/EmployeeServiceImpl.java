@@ -30,10 +30,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeereg.setGender(employeeRegistrationrequestDto.getGender());
 		
 		
-	}
 
-	public void persist(EmployeeRequestDto employeeregistration) {
-		// TODO Auto-generated method stub
+
+	if (employeereg != null) {
+			serializable = employeeregistrationDao.save(employeereg);
+		}
+		return;
 		
 	}
 
