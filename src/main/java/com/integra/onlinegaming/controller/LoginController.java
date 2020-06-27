@@ -1,4 +1,4 @@
-package com.integra.onlinegaming.controller;
+ package com.integra.onlinegaming.controller;
 
 import java.util.Map;
 
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.integra.onlinegaming.dto.LoginRequestDto;
-import com.integra.onlinegaming.model.Login;
 import com.integra.onlinegaming.service.LoginService;
 
 @Controller
@@ -25,13 +24,13 @@ public class LoginController {
 	private LoginService loginService;
 	@RequestMapping(method = RequestMethod.GET)
 	public String showForm(Map model) {
-		Login login = new Login();
+		LoginRequestDto login = new LoginRequestDto();
 		model.put("login", login);
 		return "login";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String processForm(@Validated Login loginForm, BindingResult result,
+	public String processForm(@Validated LoginRequestDto loginForm, BindingResult result,
 			Map model) {
 
 		

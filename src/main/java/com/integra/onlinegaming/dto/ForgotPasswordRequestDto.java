@@ -1,11 +1,11 @@
 package com.integra.onlinegaming.dto;
 
 public class ForgotPasswordRequestDto {
-	
+
 	private String username;
 	private String password;
-	private String confirmpassword;
-	
+	private String confirmPassword;
+
 	public ForgotPasswordRequestDto() {
 		// TODO Auto-generated constructor stub
 	}
@@ -26,19 +26,18 @@ public class ForgotPasswordRequestDto {
 		this.password = password;
 	}
 
-	public String getConfirmpassword() {
-		return confirmpassword;
+	public String getConfirmPassword() {
+		return confirmPassword;
 	}
 
-	public void setConfirmpassword(String confirmpassword) {
-		this.confirmpassword = confirmpassword;
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 	@Override
 	public String toString() {
-		return "ForgotPasswordRequestDto [username=" + username + ", password=" + password + ", confirmpassword="
-				+ confirmpassword + "]";
+		return "ForgotPasswordRequestDto [username=" + username + ", password=" + password + ", confirmPassword="
+				+ confirmPassword + "]";
 	}
 
-	
 }
