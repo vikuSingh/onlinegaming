@@ -1,4 +1,4 @@
-package com.integra.onlinegaming.daoimpl;
+package com.integra.onlinegaming.daoImpl;
 
 import java.io.Serializable;
 
@@ -9,16 +9,18 @@ import org.springframework.stereotype.Repository;
 
 import com.integra.onlinegaming.dao.EmployeeDao;
 import com.integra.onlinegaming.model.Employee;
+
 @Repository
 public class EmployeeDaoImpl implements EmployeeDao {
+
 	@Autowired
 	private SessionFactory sessionFactory;
-	public Integer save(Employee employeeregistraion) {
-		Session session = this.sessionFactory.getCurrentSession();
-		Serializable serializable = session.save(employeeregistraion);
 
+	public Integer save(Employee employee) {
+		Session session  = this.sessionFactory.getCurrentSession();
+		Serializable serializable = session.save(employee);
 		return serializable.hashCode();
-		
+
 	}
 
 }

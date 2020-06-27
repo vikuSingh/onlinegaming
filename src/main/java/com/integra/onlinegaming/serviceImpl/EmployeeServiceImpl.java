@@ -1,6 +1,4 @@
-package com.integra.onlinegaming.serviceimpl;
-
-import java.io.Serializable;
+package com.integra.onlinegaming.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,33 +8,27 @@ import com.integra.onlinegaming.dao.EmployeeDao;
 import com.integra.onlinegaming.dto.EmployeeRequestDto;
 import com.integra.onlinegaming.model.Employee;
 import com.integra.onlinegaming.service.EmployeeService;
+
+
 @Service
 @Transactional
-
 public class EmployeeServiceImpl implements EmployeeService {
+
 	@Autowired
-	private EmployeeDao employeeregistrationDao;
+	private EmployeeDao employeeDAO;
 
-	public void employeereg(EmployeeRequestDto employeeRegistrationrequestDto) {
-		Serializable serializable = null;
-		Employee employeereg = new Employee();
-		employeereg.setEmployeename(employeeRegistrationrequestDto.getEmployeename());
-		employeereg.setEmployeeId(employeeRegistrationrequestDto.getEmployeeId());
-		employeereg.setAddress(employeeRegistrationrequestDto.getAddress());
-		employeereg.setAge(employeeRegistrationrequestDto.getAge());
-		employeereg.setEmail(employeeRegistrationrequestDto.getEmail());
-		employeereg.setPhonenumber(employeeRegistrationrequestDto.getPhonenumber());
-		employeereg.setDateofbirth(employeeRegistrationrequestDto.getDateofbirth());
-		employeereg.setGender(employeeRegistrationrequestDto.getGender());
-		
-		
-
-
-	if (employeereg != null) {
-			serializable = employeeregistrationDao.save(employeereg);
+	public void persist(EmployeeRequestDto employeeRequestDto) {
+		Employee employee = new Employee();
+		employee.setEname(employeeRequestDto.getEname());
+		employee.setAddress(employeeRequestDto.getAddress());
+		employee.setAge(employeeRequestDto.getAge());
+		employee.setEmail(employeeRequestDto.getEmail());
+		employee.setGender(employeeRequestDto.getGender());
+		employee.setPhoneNumber(employeeRequestDto.getPhoneNumber());
+		employee.setDob(employeeRequestDto.getDob());
+		if (employee != null) {
+			employeeDAO.save(employee);
 		}
-		return;
-		
 	}
 
 }

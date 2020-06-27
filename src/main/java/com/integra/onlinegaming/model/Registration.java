@@ -5,121 +5,146 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table (name="registration")
-
+//@Entity
+//@Table(name = "REGISTRATION")
 public class Registration {
-@Column (name="Fullname")
+
+	private Long regId;
+
+	@Column(name = "Fullname")
 	private String Fullname;
 
-@Column(name="FatherName")
+	@Column(name = "FATHER_NAME")
 	private String Fathername;
 
-@Id
-@Column(name="email")
+	@Column(name = "email")
 	private String Emailaddress;
 
-@Column(name="gender")
+	@Column(name = "gender")
 	private String Gender;
 
-@Column(name="Dob")
+	@Column(name = "Dob")
 	private String DOB;
 
-@Column(name="Pincode")
+	@Column(name = "Pincode")
 	private String Pincode;
-@Column(name="Address")
+	@Column(name = "Address")
 	private String Address;
 
-@Column(name="Village")
+	@Column(name = "Village")
 	private String Village;
-@Column(name="City")
+	@Column(name = "City")
 	private String City;
 
-@Column(name="MobileNumber")
+	@Column(name = "MobileNumber")
 	private String Mobilenumber;
 
-@Column(name="Password")
+	@Column(name = "Password")
 	private String Password;
 
-@Column(name="ConfirmPassword")
+	@Column(name = "ConfirmPassword")
 	private String ConfirmPassword;
 
 	public Registration() {
-	
-		
+
 	}
+
 	public String getFullname() {
 		return Fullname;
 	}
+
 	public void setFullname(String fullname) {
 		Fullname = fullname;
 	}
+
 	public String getFathername() {
 		return Fathername;
 	}
+
 	public void setFathername(String fathername) {
 		Fathername = fathername;
 	}
+
 	public String getEmailaddress() {
 		return Emailaddress;
 	}
+
 	public void setEmailaddress(String emailaddress) {
 		Emailaddress = emailaddress;
 	}
+
 	public String getGender() {
 		return Gender;
 	}
+
 	public void setGender(String gender) {
 		Gender = gender;
 	}
+
 	public String getDOB() {
 		return DOB;
 	}
+
 	public void setDOB(String dOB) {
 		DOB = dOB;
 	}
+
 	public String getPincode() {
 		return Pincode;
 	}
+
 	public void setPincode(String pincode) {
 		Pincode = pincode;
 	}
+
 	public String getAddress() {
 		return Address;
 	}
+
 	public void setAddress(String address) {
 		Address = address;
 	}
+
 	public String getVillage() {
 		return Village;
 	}
+
 	public void setVillage(String village) {
 		Village = village;
 	}
+
 	public String getCity() {
 		return City;
 	}
+
 	public void setCity(String city) {
 		City = city;
 	}
+
 	public String getMobilenumber() {
 		return Mobilenumber;
 	}
+
 	public void setMobilenumber(String mobilenumber) {
 		Mobilenumber = mobilenumber;
 	}
+
 	public String getPassword() {
 		return Password;
 	}
+
 	public void setPassword(String password) {
 		Password = password;
 	}
+
 	public String getConfirmPassword() {
 		return ConfirmPassword;
 	}
+
 	public void setConfirmPassword(String confirmPassword) {
 		ConfirmPassword = confirmPassword;
 	}
+
 	@Override
 	public String toString() {
 		return "Registration [Fullname=" + Fullname + ", Fathername=" + Fathername + ", Emailaddress=" + Emailaddress
@@ -127,7 +152,5 @@ public class Registration {
 				+ Village + ", City=" + City + ", Mobilenumber=" + Mobilenumber + ", Password=" + Password
 				+ ", ConfirmPassword=" + ConfirmPassword + "]";
 	}
-	
-	
-	
+
 }

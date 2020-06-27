@@ -1,26 +1,31 @@
 package com.integra.onlinegaming.controller;
-import com.integra.onlinegaming.dto.EmployeeRequestDto;
-import com.integra.onlinegaming.service.EmployeeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping(value ="/employee")
+import com.integra.onlinegaming.dto.EmployeeRequestDto;
+import com.integra.onlinegaming.service.EmployeeService;
+
+@RestController
+@RequestMapping(value = "/employee")
+@CrossOrigin(origins = "*")
 public class EmployeeController {
 	@Autowired
-	private  EmployeeService employeeService;
-	public ResponseEntity<EmployeeRequestDto> employeereg(@ModelAttribute EmployeeRequestDto employeeRequestDto) {
-		if(employeeRequestDto==null) {
-			employeeService.employeereg(employeeRequestDto);
-			return new ResponseEntity<EmployeeRequestDto>(HttpStatus.OK);
+	private EmployeeService employeeService;
+
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public ResponseEntity<String> persist(@RequestBody EmployeeRequestDto employeeRequestDto) {
+		if (employeeRequestDto != null) {
+			employeeService.persist(employeeRequestDto);
+			return new ResponseEntity<String>(HttpStatus.OK);
 		}
-		return new ResponseEntity<EmployeeRequestDto>(HttpStatus.INTERNAL_SERVER_ERROR);
-		
+		return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 }

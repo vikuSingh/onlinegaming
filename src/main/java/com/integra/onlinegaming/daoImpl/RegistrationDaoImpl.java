@@ -1,4 +1,4 @@
-package com.integra.onlinegaming.daoimpl;
+package com.integra.onlinegaming.daoImpl;
 
 import java.io.Serializable;
 

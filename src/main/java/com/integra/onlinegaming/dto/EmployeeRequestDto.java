@@ -1,75 +1,90 @@
 package com.integra.onlinegaming.dto;
 
+import java.util.Date;
+
 public class EmployeeRequestDto {
-	
-	
-	private String Employeename;
-	private String EmployeeId;
-	private String Address;
+
+	private Long eid;
+	private String ename;
+	private String address;
 	private int age;
 	private String email;
-	private String Phonenumber;
-	private String Dateofbirth;
-	private String Gender;
+	private String phoneNumber;
+	private Date dob;
+	private String gender;
+
 	public EmployeeRequestDto() {
-		
 		// TODO Auto-generated constructor stub
 	}
-	public String getEmployeename() {
-		return Employeename;
+
+	public Long getEid() {
+		return eid;
 	}
-	public void setEmployeename(String employeename) {
-		Employeename = employeename;
+
+	public void setEid(Long eid) {
+		this.eid = eid;
 	}
-	public String getEmployeeId() {
-		return EmployeeId;
+
+	public String getEname() {
+		return ename;
 	}
-	public void setEmployeeId(String employeeId) {
-		EmployeeId = employeeId;
+
+	public void setEname(String ename) {
+		this.ename = ename;
 	}
+
 	public String getAddress() {
-		return Address;
+		return address;
 	}
+
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
+
 	public int getAge() {
 		return age;
 	}
+
 	public void setAge(int age) {
 		this.age = age;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhonenumber() {
-		return Phonenumber;
+
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-	public void setPhonenumber(String phonenumber) {
-		Phonenumber = phonenumber;
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
-	public String getDateofbirth() {
-		return Dateofbirth;
+
+	public Date getDob() {
+		return dob;
 	}
-	public void setDateofbirth(String dateofbirth) {
-		Dateofbirth = dateofbirth;
+
+	public void setDob(Date dob) {
+		this.dob = dob;
 	}
+
 	public String getGender() {
-		return Gender;
+		return gender;
 	}
+
 	public void setGender(String gender) {
-		Gender = gender;
+		this.gender = gender;
 	}
+
 	@Override
 	public String toString() {
-		return "EmployeeRequestDto [Employeename=" + Employeename + ", EmployeeId=" + EmployeeId + ", Address="
-				+ Address + ", age=" + age + ", email=" + email + ", Phonenumber=" + Phonenumber + ", Dateofbirth="
-				+ Dateofbirth + ", Gender=" + Gender + "]";
+		return "EmployeeRequestDto [eid=" + eid + ", ename=" + ename + ", address=" + address + ", age=" + age
+				+ ", email=" + email + ", phoneNumber=" + phoneNumber + ", dob=" + dob + ", gender=" + gender + "]";
 	}
-	
-	
 
 }
