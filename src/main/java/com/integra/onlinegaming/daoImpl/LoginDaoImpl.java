@@ -9,45 +9,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.integra.onlinegaming.dao.LoginDao;
-import com.integra.onlinegaming.dto.LoginRequestDto;
-
+import com.integra.onlinegaming.dto.RegisterRequestDto;
+import com.integra.onlinegaming.model.Registration;
 
 @Repository
 public class LoginDaoImpl implements LoginDao {
-    @Autowired 
-	private SessionFactory sessionFactory;
-    
-	public boolean login(String username, String password) {
-		boolean userFound=false;
-		Session session = this.sessionFactory.getCurrentSession();
-		String SQL_QUERY =" from register  where username=? and password=?";
-		Query query = session.createQuery(SQL_QUERY);
-		query.setParameter(0,username);
-		query.setParameter(1,password);
-		List<LoginRequestDto> list = query.list();
-		if ((list != null) && (list.size() > 0)) {
-			userFound= true;
-		}
 
-		session.close();
-		return userFound;  
-		
-	}
-	public int ForgotPassword(String username, String password, String confirmpassword) {
-	    
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	@SuppressWarnings("unchecked")
+	public boolean login(Registration registration) {
+		boolean userFound = false;
 		Session session = this.sessionFactory.getCurrentSession();
-		String SQL_QUERY ="  update login set PASSWORD = :pwd where USER_NAME = :name; ";
-		Query query = session.createQuery(SQL_QUERY);
-		if(password.equals(confirmpassword)) {
-			query.setParameter(0,password);	
+
+		List<RegisterRequestDto> list = session.createQuery("from Registration where email='" + registration.getEmail()
+				+ "' and password='" + registration.getPassword() + "'").list();
+		if ((list != null) && (list.size() > 0)) {
+			userFound = true;
 		}
-		query.setParameter(1,username);
-		
-		int result=query.executeUpdate();
-		
-		
+		return userFound;
+	}
+
+	public int ForgotPassword(String username, String password, String confirmpassword) {
+		Session session = this.sessionFactory.getCurrentSession();
+		String SQL_QUERY = "  update registration set PASSWORD = :pwd where USER_NAME = :name; ";
+		Query query = session.createQuery(SQL_QUERY);
+		if (password.equals(confirmpassword)) {
+			query.setParameter(0, password);
+		}
+		query.setParameter(1, username);
+		int result = query.executeUpdate();
 		return result;
 	}
-
 
 }

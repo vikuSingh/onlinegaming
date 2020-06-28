@@ -5,7 +5,8 @@ public class Contact {
 	private String firstName;
 	private String lastName;
 	private String mobileNo;
-	private String messages;
+	private String country;
+	private String subject;
 
 	public Contact() {
 		// TODO Auto-generated constructor stub
@@ -35,18 +36,27 @@ public class Contact {
 		this.mobileNo = mobileNo;
 	}
 
-	public String getMessages() {
-		return messages;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setMessages(String messages) {
-		this.messages = messages;
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 
 	@Override
 	public String toString() {
-		return "Contact [firstName=" + firstName + ", lastName=" + lastName + ", mobileNo=" + mobileNo + ", messages="
-				+ messages + "]";
+		return "Contact [firstName=" + firstName + ", lastName=" + lastName + ", mobileNo=" + mobileNo + ", country="
+				+ country + ", subject=" + subject + "]";
 	}
 
+	
 	}

@@ -1,65 +1,30 @@
- package com.integra.onlinegaming.controller;
-
-import java.util.Map;
+package com.integra.onlinegaming.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.integra.onlinegaming.dto.LoginRequestDto;
+import com.integra.onlinegaming.dto.RegisterRequestDto;
 import com.integra.onlinegaming.service.LoginService;
 
-@Controller
-@RequestMapping(value ="/login")
-
+@RestController
+@CrossOrigin(value = "*")
+@RequestMapping(value = "/login")
 public class LoginController {
-	
+
 	@Autowired
 	private LoginService loginService;
-	@RequestMapping(method = RequestMethod.GET)
-	public String showForm(Map model) {
-		LoginRequestDto login = new LoginRequestDto();
-		model.put("login", login);
-		return "login";
+
+	@RequestMapping(value = "/getLogin", method = RequestMethod.POST)
+	public boolean processForm(@RequestBody RegisterRequestDto registerRequestDto) {
+		boolean flag = false;
+		if (registerRequestDto != null) {
+			flag = loginService.checkLogin(registerRequestDto);
+		}
+		return flag;
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
-	public String processForm(@Validated LoginRequestDto loginForm, BindingResult result,
-			Map model) {
-
-		
-		if (result.hasErrors()) {
-			return "login";
-		}
-		
-		/*
-		String userName = "UserName";
-		String password = "password";
-		loginForm = (LoginForm) model.get("loginForm");
-		if (!loginForm.getUserName().equals(userName)
-				|| !loginForm.getPassword().equals(password)) {
-			return "login";
-		}
-		*/
-		boolean userExists = loginService.checkLogin(loginForm.getUsername(),
-                loginForm.getPassword());
-		if(userExists){
-			model.put("loginForm", loginForm);
-			return "loginsuccess";
-		}else{
-			result.rejectValue("userName","invaliduser");
-			return "loginform";
-		}
-
-	}
-	
-
-	
 }
-
