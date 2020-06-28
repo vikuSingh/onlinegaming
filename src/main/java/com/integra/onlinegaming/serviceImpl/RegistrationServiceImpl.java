@@ -1,11 +1,8 @@
 package com.integra.onlinegaming.serviceImpl;
-
-import java.io.Serializable;
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.integra.onlinegaming.dao.Registrationdao;
 import com.integra.onlinegaming.dto.RegisterRequestDto;
 import com.integra.onlinegaming.model.Registration;
@@ -16,32 +13,32 @@ import com.integra.onlinegaming.service.RegistrationService;
 public class RegistrationServiceImpl implements RegistrationService {
 	
 	@Autowired
-	private Registrationdao registrationdtlsDao;
+	private Registrationdao registrationDAO;
 
-	public void registrationdtls(RegisterRequestDto RegistrationDeatils) {
+	public void registrationdtls(RegisterRequestDto registerRequestDto) {
 		
-		
-		
-		Serializable serializable = null;
 		 Registration registration = new Registration();
-		 registration.setFullname(RegistrationDeatils.getFullname());
-		 registration.setFathername(RegistrationDeatils.getFathername());
-		 registration.setEmailaddress(RegistrationDeatils.getEmailaddress());
-		 registration.setGender(RegistrationDeatils.getGender());
-		 registration.setDOB(RegistrationDeatils.getDOB());
-		 registration.setPincode(RegistrationDeatils.getPincode());
-		 registration.setAddress(RegistrationDeatils.getAddress());
-		 registration.setVillage(RegistrationDeatils.getVillage());
-		 registration.setCity(RegistrationDeatils.getCity());
-		 registration.setMobilenumber(RegistrationDeatils.getMobilenumber());
-		 registration.setPassword(RegistrationDeatils.getPassword());
-		 registration.setConfirmPassword(RegistrationDeatils.getConfirmPassword());
+		 registration.setFullName(registerRequestDto.getFullName());
+		 registration.setFatherName(registerRequestDto.getFatherName());
+		 registration.setEmail(registerRequestDto.getEmail());
+		 registration.setGender(registerRequestDto.getGender());
+		 registration.setDob(registerRequestDto.getDob());
+		 registration.setPinCode(registerRequestDto.getPinCode());
+		 registration.setAddress(registerRequestDto.getAddress());
+		 registration.setVillage(registerRequestDto.getVillage());
+		 registration.setCity(registerRequestDto.getCity());
+		 registration.setMobileNumber(registerRequestDto.getMobileNumber());
+		 registration.setPassword(registerRequestDto.getPassword());
 		 
 		 if (registration != null) {
-				serializable = registrationdtlsDao.save(registration);
+			 registrationDAO.save(registration);
 			}
-			//return serializable.hashCode();
+			
 		}
+
+	public List<RegisterRequestDto> getDeatils() {
+		return null;
+	}
 	
 		
 	}
