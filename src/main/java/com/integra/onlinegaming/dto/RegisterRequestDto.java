@@ -2,103 +2,125 @@ package com.integra.onlinegaming.dto;
 
 public class RegisterRequestDto {
 
-	private String Fullname;
-	private String Fathername;
-	private String Emailaddress;
-	private String Gender;
-	private String DOB;
-	private String Pincode;
-	private String Address;
-	private String Village;
-	private String City;
-	private String Mobilenumber;
-	private String Password;
-	private String ConfirmPassword;
+	private int regId;
+	private String fullName;
+	private String fatherName;
+	private String email;
+	private String gender;
+	private String dob;
+	private String pinCode;
+	private String address;
+	private String village;
+	private String city;
+	private String mobileNumber;
+	private String password;
+
 	public RegisterRequestDto() {
-		
-		
-		
-		
+
 	}
-	public String getFullname() {
-		return Fullname;
+
+	public int getRegId() {
+		return regId;
 	}
-	public void setFullname(String fullname) {
-		Fullname = fullname;
+
+	public void setRegId(int regId) {
+		this.regId = regId;
 	}
-	public String getFathername() {
-		return Fathername;
+
+	public String getFullName() {
+		return fullName;
 	}
-	public void setFathername(String fathername) {
-		Fathername = fathername;
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
-	public String getEmailaddress() {
-		return Emailaddress;
+
+	public String getFatherName() {
+		return fatherName;
 	}
-	public void setEmailaddress(String emailaddress) {
-		Emailaddress = emailaddress;
+
+	public void setFatherName(String fatherName) {
+		this.fatherName = fatherName;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getGender() {
-		return Gender;
+		return gender;
 	}
+
 	public void setGender(String gender) {
-		Gender = gender;
+		this.gender = gender;
 	}
-	public String getDOB() {
-		return DOB;
+
+	public String getDob() {
+		return dob;
 	}
-	public void setDOB(String dOB) {
-		DOB = dOB;
+
+	public void setDob(String dob) {
+		this.dob = dob;
 	}
-	public String getPincode() {
-		return Pincode;
+
+	public String getPinCode() {
+		return pinCode;
 	}
-	public void setPincode(String pincode) {
-		Pincode = pincode;
+
+	public void setPinCode(String pinCode) {
+		this.pinCode = pinCode;
 	}
+
 	public String getAddress() {
-		return Address;
+		return address;
 	}
+
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
+
 	public String getVillage() {
-		return Village;
+		return village;
 	}
+
 	public void setVillage(String village) {
-		Village = village;
+		this.village = village;
 	}
+
 	public String getCity() {
-		return City;
+		return city;
 	}
+
 	public void setCity(String city) {
-		City = city;
+		this.city = city;
 	}
-	public String getMobilenumber() {
-		return Mobilenumber;
+
+	public String getMobileNumber() {
+		return mobileNumber;
 	}
-	public void setMobilenumber(String mobilenumber) {
-		Mobilenumber = mobilenumber;
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
+
 	public String getPassword() {
-		return Password;
+		return password;
 	}
+
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
-	public String getConfirmPassword() {
-		return ConfirmPassword;
-	}
-	public void setConfirmPassword(String confirmPassword) {
-		ConfirmPassword = confirmPassword;
-	}
+
 	@Override
 	public String toString() {
-		return "RegisterRequestDto [Fullname=" + Fullname + ", Fathername=" + Fathername + ", Emailaddress="
-				+ Emailaddress + ", Gender=" + Gender + ", DOB=" + DOB + ", Pincode=" + Pincode + ", Address=" + Address
-				+ ", Village=" + Village + ", City=" + City + ", Mobilenumber=" + Mobilenumber + ", Password="
-				+ Password + ", ConfirmPassword=" + ConfirmPassword + "]";
+		return "RegisterRequestDto [regId=" + regId + ", fullName=" + fullName + ", fatherName=" + fatherName
+				+ ", email=" + email + ", gender=" + gender + ", dob=" + dob + ", pinCode=" + pinCode + ", address="
+				+ address + ", village=" + village + ", city=" + city + ", mobileNumber=" + mobileNumber + ", password="
+				+ password + "]";
 	}
-	
 
 }
