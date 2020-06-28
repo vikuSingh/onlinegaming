@@ -4,53 +4,47 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "billing_details")
+@Table(name = "BILLING_DETAILS")
 public class Billing implements Serializable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
-
-	@Column(name = "first_name")
-	private String firstName;
-
-	@Column(name = "last_name")
-	private String lastName;
-
-	@Column(name = "city")
-	private String city;
-
-	@Column(name = "pincode")
-	private String pinCode;
-
-	@Id
-	@Column(name = "email")
-	private String email;
-
-	@Column(name = "phone_no")
-	private String phoneNumber;
-
-	@Column(name = "product")
-	private String product;
-
-	@Column(name = "price")
-	private double price;
-
-	@Column(name = "sub_total")
-	private int subTotal;
-
-	@Column(name = "total")
+	
+	
+	private int billingId;	
+	private String firstName;	
+	private String lastName;	
+	private String city;	
+	private String pinCode;	
+	private String email;	
+	private long phoneNo;	
+	private String product;	
+	private double price;	
+	private int subTotal;	
 	private int total;
 
 	public Billing() {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="BILLING_ID")
+	public int getBillingId() {
+		return billingId;
+	}
+
+	public void setBillingId(int billingId) {
+		this.billingId = billingId;
+	}
+
+	@Column(name = "FIRST_NAME")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -59,6 +53,7 @@ public class Billing implements Serializable {
 		this.firstName = firstName;
 	}
 
+	@Column(name = "LAST_NAME")
 	public String getLastName() {
 		return lastName;
 	}
@@ -67,6 +62,7 @@ public class Billing implements Serializable {
 		this.lastName = lastName;
 	}
 
+	@Column(name = "CITY")
 	public String getCity() {
 		return city;
 	}
@@ -75,6 +71,7 @@ public class Billing implements Serializable {
 		this.city = city;
 	}
 
+	@Column(name = "PINCODE")
 	public String getPinCode() {
 		return pinCode;
 	}
@@ -83,6 +80,7 @@ public class Billing implements Serializable {
 		this.pinCode = pinCode;
 	}
 
+	@Column(name = "EMAIL")
 	public String getEmail() {
 		return email;
 	}
@@ -91,14 +89,16 @@ public class Billing implements Serializable {
 		this.email = email;
 	}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
+	@Column(name = "PHONE_NUM")
+	public long getPhoneNo() {
+		return phoneNo;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setPhoneNo(long phoneNo) {
+		this.phoneNo = phoneNo;
 	}
 
+	@Column(name = "PRODUCT")
 	public String getProduct() {
 		return product;
 	}
@@ -107,6 +107,7 @@ public class Billing implements Serializable {
 		this.product = product;
 	}
 
+	@Column(name = "PRICE")
 	public double getPrice() {
 		return price;
 	}
@@ -115,6 +116,7 @@ public class Billing implements Serializable {
 		this.price = price;
 	}
 
+	@Column(name = "SUB_TOTAL")
 	public int getSubTotal() {
 		return subTotal;
 	}
@@ -123,6 +125,7 @@ public class Billing implements Serializable {
 		this.subTotal = subTotal;
 	}
 
+	@Column(name = "TOTAL")
 	public int getTotal() {
 		return total;
 	}
@@ -134,7 +137,7 @@ public class Billing implements Serializable {
 	@Override
 	public String toString() {
 		return "BillingDetails [firstName=" + firstName + ", lastName=" + lastName + ", city=" + city + ", pinCode="
-				+ pinCode + ", email=" + email + ", phoneNumber=" + phoneNumber + ", product=" + product + ", price="
+				+ pinCode + ", email=" + email + ", phoneNumber=" + phoneNo+ ", product=" + product + ", price="
 				+ price + ", subTotal=" + subTotal + ", total=" + total + "]";
 	}
 

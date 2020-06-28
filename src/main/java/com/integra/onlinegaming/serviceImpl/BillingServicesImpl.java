@@ -25,12 +25,12 @@ public class BillingServicesImpl implements BillingService {
 		Billing billingDetails = new Billing();
 		billingDetails.setFirstName(billingDetailsRequestDto.getFirstName());
 		billingDetails.setLastName(billingDetailsRequestDto.getLastName());
-		billingDetails.setPhoneNumber(billingDetailsRequestDto.getPhoneNumber());
-		billingDetails.setEmail(billingDetailsRequestDto.getEmail());
 		billingDetails.setCity(billingDetailsRequestDto.getCity());
 		billingDetails.setPinCode(billingDetailsRequestDto.getPinCode());
-		billingDetails.setPrice(billingDetailsRequestDto.getPrice());
+		billingDetails.setEmail(billingDetailsRequestDto.getEmail());
+		billingDetails.setPhoneNo(billingDetailsRequestDto.getPhoneNo());
 		billingDetails.setProduct(billingDetailsRequestDto.getProduct());
+		billingDetails.setPrice(billingDetailsRequestDto.getPrice());
 		billingDetails.setSubTotal(billingDetailsRequestDto.getSubTotal());
 		billingDetails.setTotal(billingDetailsRequestDto.getTotal());
 

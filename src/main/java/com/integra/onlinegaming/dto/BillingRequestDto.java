@@ -12,7 +12,7 @@ public class BillingRequestDto {
 		private String city;
 		private String pinCode;
 		private String email;
-		private String phoneNumber;
+		private long phoneNo;
 		private String product;
 		private double price;
 		private int subTotal;
@@ -62,12 +62,12 @@ public class BillingRequestDto {
 			this.email = email;
 		}
 
-		public String getPhoneNumber() {
-			return phoneNumber;
+		public long getPhoneNo() {
+			return phoneNo;
 		}
 
-		public void setPhoneNumber(String phoneNumber) {
-			this.phoneNumber = phoneNumber;
+		public void setPhoneNo(long phoneNo) {
+			this.phoneNo = phoneNo;
 		}
 
 		public String getProduct() {
@@ -105,7 +105,7 @@ public class BillingRequestDto {
 		@Override
 		public String toString() {
 			return "BillingDetails [firstName=" + firstName + ", lastName=" + lastName + ", city=" + city + ", pinCode="
-					+ pinCode + ", email=" + email + ", phoneNumber=" + phoneNumber + ", product=" + product + ", price="
+					+ pinCode + ", email=" + email + ", phoneNumber=" + phoneNo + ", product=" + product + ", price="
 					+ price + ", subTotal=" + subTotal + ", total=" + total + "]";
 		}
 		

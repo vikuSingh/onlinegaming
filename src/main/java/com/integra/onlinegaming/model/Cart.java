@@ -4,38 +4,43 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "cart_details")
+@Table(name = "CART_DETAILS")
 public class Cart implements Serializable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@Column(name = "item")
-	private String item;
-
-	@Column(name = "price")
-	private double price;
-
-	@Column(name = "quantity")
+	
+	
+	private long cartId;	
+	private String item;	
+	private double price;	
 	private int quantity;
-
-	@Column(name = "total")
-	private int total;
-
-	@Column(name = "coupon_code")
+	private int total;	
 	private String couponCode;
+	
 
 	public Cart() {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="CART_ID")
+	public long getCartId() {
+		return cartId;
+	}
+
+	public void setCartId(long cartId) {
+		this.cartId = cartId;
+	}
+
+	@Column(name = "ITEM")
 	public String getItem() {
 		return item;
 	}
@@ -44,6 +49,7 @@ public class Cart implements Serializable {
 		this.item = item;
 	}
 
+	@Column(name = "PRICE")
 	public double getPrice() {
 		return price;
 	}
@@ -52,6 +58,7 @@ public class Cart implements Serializable {
 		this.price = price;
 	}
 
+	@Column(name = "QUANTITY")
 	public int getQuantity() {
 		return quantity;
 	}
@@ -60,6 +67,7 @@ public class Cart implements Serializable {
 		this.quantity = quantity;
 	}
 
+	@Column(name = "TOTAL")
 	public int getTotal() {
 		return total;
 	}
@@ -68,6 +76,7 @@ public class Cart implements Serializable {
 		this.total = total;
 	}
 
+	@Column(name = "COUPON")
 	public String getCouponCode() {
 		return couponCode;
 	}
