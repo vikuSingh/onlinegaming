@@ -15,10 +15,10 @@ public class Tournament {
     private int eventId;
 	private String eventName;
 	private int entryAmount;
-	private int gameType;
-	private int gameName;
+	private String gameType;
+	private String gameName;
 	private int teams;
-    private int winningPrice;
+    private double winningPrice;
 	
 	
 	public Tournament() {
@@ -57,22 +57,22 @@ public class Tournament {
 	}
 
 	 @Column(name="GAME_TYPE")
-	public int getGameType() {
+	public String getGameType() {
 		return gameType;
 	}
 
 
-	public void setGameType(int gameType) {
+	public void setGameType(String gameType) {
 		this.gameType = gameType;
 	}
 
 	 @Column(name="GAME_NAMES")
-	public int getGameName() {
+	public String getGameName() {
 		return gameName;
 	}
 
 
-	public void setGameName(int gameName) {
+	public void setGameName(String gameName) {
 		this.gameName = gameName;
 	}
 
@@ -87,12 +87,12 @@ public class Tournament {
 	}
 
 	 @Column(name="WINNING_PRICE")
-	public int getWinningPrice() {
+	public double getWinningPrice() {
 		return winningPrice;
 	}
 
 
-	public void setWinningPrice(int winningPrice) {
+	public void setWinningPrice(double winningPrice) {
 		this.winningPrice = winningPrice;
 	}
 

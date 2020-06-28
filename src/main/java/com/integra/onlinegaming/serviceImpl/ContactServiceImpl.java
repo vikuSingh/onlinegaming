@@ -17,8 +17,7 @@ public class ContactServiceImpl implements ContactService {
  
 	@Autowired
 	private ContactDao contactdao;
-	
-	
+ 
 	public Integer persist(ContactRequestDto contactRequestDto) {
 		
 		Contact contact=new Contact();

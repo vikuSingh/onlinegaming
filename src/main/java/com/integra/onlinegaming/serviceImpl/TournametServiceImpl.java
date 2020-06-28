@@ -25,7 +25,7 @@ public class TournametServiceImpl implements TournamentService {
 
 	Tournament tournamentDetails = new Tournament();
 	
-	tournamentDetails.setEventNameid(tournamentDetailsRequestDto.getEventNameid());
+	
 	tournamentDetails.setEventName(tournamentDetailsRequestDto.getEventName());
 	tournamentDetails.setEntryAmount(tournamentDetailsRequestDto.getEntryAmount());
 	tournamentDetails.setGameType(tournamentDetailsRequestDto.getGameType());
