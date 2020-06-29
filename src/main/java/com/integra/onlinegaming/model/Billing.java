@@ -34,7 +34,7 @@ public class Billing implements Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="BILLING_ID")
 	public int getBillingId() {
 		return billingId;

@@ -30,7 +30,7 @@ public class Cart implements Serializable {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="CART_ID")
 	public long getCartId() {
 		return cartId;
