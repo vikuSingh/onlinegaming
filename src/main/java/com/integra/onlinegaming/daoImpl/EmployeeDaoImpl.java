@@ -1,6 +1,7 @@
 package com.integra.onlinegaming.daoImpl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -17,10 +18,16 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	private SessionFactory sessionFactory;
 
 	public Integer save(Employee employee) {
-		Session session  = this.sessionFactory.getCurrentSession();
+		Session session = this.sessionFactory.getCurrentSession();
 		Serializable serializable = session.save(employee);
 		return serializable.hashCode();
 
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Employee> getDetails() {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<Employee> list = session.createQuery("from REG_EMPLOYEE").list();
+		return list;
+	}
 }
