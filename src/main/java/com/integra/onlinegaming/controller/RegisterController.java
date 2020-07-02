@@ -13,8 +13,9 @@ import com.integra.onlinegaming.dto.RegisterRequestDto;
 import com.integra.onlinegaming.service.RegistrationService;
 
 @RestController
-@RequestMapping(value = "/registration")
 @CrossOrigin(origins = "*")
+@RequestMapping(value = "/registration")
+
 public class RegisterController {
 
 	@Autowired
