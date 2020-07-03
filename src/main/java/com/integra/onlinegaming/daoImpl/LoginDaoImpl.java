@@ -31,16 +31,16 @@ public class LoginDaoImpl implements LoginDao {
 		return userFound;
 	}
 
-	public int ForgotPassword(String username, String password, String confirmpassword) {
+	public int ForgotPassword(Registration registration) {
+		
 		Session session = this.sessionFactory.getCurrentSession();
-		String SQL_QUERY = "  update registration set PASSWORD = :pwd where USER_NAME = :name; ";
+		String SQL_QUERY = "update Registration set PASSWORD = ? where EMAIL = ?";
 		Query query = session.createQuery(SQL_QUERY);
-		if (password.equals(confirmpassword)) {
-			query.setParameter(0, password);
-		}
-		query.setParameter(1, username);
+		query.setParameter(1, registration.getEmail());
+		query.setParameter(0,registration.getPassword());
 		int result = query.executeUpdate();
 		return result;
+		 
 	}
-
+	
 }

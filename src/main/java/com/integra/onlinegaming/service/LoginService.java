@@ -6,5 +6,6 @@ public interface LoginService {
 	
   public boolean checkLogin(RegisterRequestDto registerRequestDto);
   
-  public int updateUser(String username,String password,String confirmPassword);
+public boolean updateUser(RegisterRequestDto registerRequestDto);
+
 }

@@ -1,5 +1,6 @@
 package com.integra.onlinegaming.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,5 +27,13 @@ public class LoginController {
 		}
 		return flag;
 	}
+	@RequestMapping(value = "/update", method = RequestMethod.PUT)
+	public boolean login(@RequestBody RegisterRequestDto registerRequestDto) {
+		boolean flag=false;
+		if (registerRequestDto != null) {
+			flag = loginService.updateUser(registerRequestDto);
+		}
+		return flag;
 
+	}
 }

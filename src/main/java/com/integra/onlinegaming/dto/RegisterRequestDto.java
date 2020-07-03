@@ -14,6 +14,7 @@ public class RegisterRequestDto {
 	private String city;
 	private String mobileNumber;
 	private String password;
+	private String confirmPassword;
 
 	public RegisterRequestDto() {
 
@@ -115,12 +116,22 @@ public class RegisterRequestDto {
 		this.password = password;
 	}
 
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+
 	@Override
 	public String toString() {
 		return "RegisterRequestDto [regId=" + regId + ", fullName=" + fullName + ", fatherName=" + fatherName
 				+ ", email=" + email + ", gender=" + gender + ", dob=" + dob + ", pinCode=" + pinCode + ", address="
 				+ address + ", village=" + village + ", city=" + city + ", mobileNumber=" + mobileNumber + ", password="
-				+ password + "]";
+				+ password + ", confirmPassword=" + confirmPassword + "]";
 	}
+	
+
 
 }

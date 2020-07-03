@@ -1,3 +1,4 @@
+
 package com.integra.onlinegaming.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +25,23 @@ public class LoginServiceImpl implements LoginService {
 		return flag;
 	}
 
-	public int updateUser(String username, String password, String confirmPassword) {
-		int result = 0;
-		if (password.equals(confirmPassword)) {
-			result = loginDao.ForgotPassword(username, password, confirmPassword);
-			return result;
+	public boolean updateUser(RegisterRequestDto registerRequestDto) {
+		boolean flag =false;
+		Registration registration = new Registration();
+		registration.setEmail(registerRequestDto.getEmail());
+		if (registerRequestDto.getPassword().equals(registerRequestDto.getConfirmPassword()))
+		{
+			
+			registration. setPassword(registerRequestDto.getPassword()); 
+			 flag = loginDao.login(registration);
+			 flag=true;
+			 
+		}else {
+			flag=false;
 		}
-		return result;
+			
+		return flag;
 	}
+
 
 }
