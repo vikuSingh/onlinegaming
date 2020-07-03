@@ -25,19 +25,19 @@ public class LoginServiceImpl implements LoginService {
 		return flag;
 	}
 
-	public boolean updateUser(RegisterRequestDto registerRequestDto) {
-		boolean flag =false;
+	public int updateUser(RegisterRequestDto registerRequestDto) {
+		int flag =0;
 		Registration registration = new Registration();
 		registration.setEmail(registerRequestDto.getEmail());
 		if (registerRequestDto.getPassword().equals(registerRequestDto.getConfirmPassword()))
 		{
 			
 			registration. setPassword(registerRequestDto.getPassword()); 
-			 flag = loginDao.login(registration);
-			 flag=true;
+			 flag = loginDao.ForgotPassword(registration);
+			 flag=1;
 			 
 		}else {
-			flag=false;
+			flag=0;
 		}
 			
 		return flag;

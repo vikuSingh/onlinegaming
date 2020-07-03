@@ -28,8 +28,8 @@ public class LoginController {
 		return flag;
 	}
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
-	public boolean login(@RequestBody RegisterRequestDto registerRequestDto) {
-		boolean flag=false;
+	public int login(@RequestBody RegisterRequestDto registerRequestDto) {
+		int flag=0;
 		if (registerRequestDto != null) {
 			flag = loginService.updateUser(registerRequestDto);
 		}
