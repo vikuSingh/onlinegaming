@@ -10,7 +10,7 @@ public class EmployeeRequestDto {
 	private int age;
 	private String email;
 	private String phoneNumber;
-	private Date dob;
+	private String dob;
 	private String gender;
 
 	public EmployeeRequestDto() {
@@ -65,11 +65,11 @@ public class EmployeeRequestDto {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public Date getDob() {
+	public String getDob() {
 		return dob;
 	}
 
-	public void setDob(Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 

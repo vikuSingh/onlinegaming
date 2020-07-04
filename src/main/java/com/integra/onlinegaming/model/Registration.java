@@ -31,7 +31,7 @@ public class Registration {
 	}
 
 @Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 @Column(name="REG_ID")
 	public int getRegId() {
 		return regId;
