@@ -1,9 +1,6 @@
 package com.integra.onlinegaming.serviceImpl;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,20 +21,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	public void persist(EmployeeRequestDto employeeRequestDto) {
 		Employee employee = new Employee();
+		employee.setEid(employeeRequestDto.getEid());
 		employee.setEname(employeeRequestDto.getEname());
 		employee.setAddress(employeeRequestDto.getAddress());
 		employee.setAge(employeeRequestDto.getAge());
 		employee.setEmail(employeeRequestDto.getEmail());
 		employee.setGender(employeeRequestDto.getGender());
 		employee.setPhoneNumber(employeeRequestDto.getPhoneNumber());
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = null;
-		try {
-			date = formatter.parse(employeeRequestDto.getDob());
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		employee.setDob(date);
+		employee.setDob(employeeRequestDto.getDob());
 		if (employee != null) {
 			employeeDAO.save(employee);
 		}
@@ -48,12 +39,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 		List<EmployeeRequestDto> listRegisterReqestDto = new ArrayList<EmployeeRequestDto>();
 		listempregistration.forEach(empreg -> {
 			EmployeeRequestDto employeeRequestDto = new EmployeeRequestDto();
+			employeeRequestDto.setEid(empreg.getEid());
 			employeeRequestDto.setEname(empreg.getEname());
 			employeeRequestDto.setAddress(empreg.getAddress());
 			employeeRequestDto.setAge(empreg.getAge());
 			employeeRequestDto.setEmail(empreg.getEmail());
 			employeeRequestDto.setGender(empreg.getGender());
+			employeeRequestDto.setDob(empreg.getDob());
 			employeeRequestDto.setPhoneNumber(empreg.getPhoneNumber());
+			listRegisterReqestDto.add(employeeRequestDto);
 		});
 		return listRegisterReqestDto;
 
