@@ -1,5 +1,7 @@
 package com.integra.onlinegaming.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,16 +22,24 @@ public class RegisterController {
 
 	@Autowired
 	private RegistrationService registrationService;
+	private static final String FAIL = "fail";
+	private static final String PASS = "pass";
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public ResponseEntity<String> registrationdtls(@RequestBody RegisterRequestDto registerRequestDto) {
+	public String registrationdtls(@RequestBody RegisterRequestDto registerRequestDto) {
+
 		if (registerRequestDto != null) {
 			registrationService.registrationdtls(registerRequestDto);
-			return new ResponseEntity<String>(HttpStatus.OK);
+			return PASS;
 		}
-		return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+		return FAIL;
 
 	}
 
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public List<RegisterRequestDto> getProfileDtails() {
+		List<RegisterRequestDto> list = registrationService.getDeatils();
+		return list;
+	}
 
 }
