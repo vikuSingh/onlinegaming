@@ -3,6 +3,7 @@ package com.integra.onlinegaming.serviceImpl;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -13,17 +14,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.integra.onlinegaming.dao.EmployeeDao;
 import com.integra.onlinegaming.dto.EmployeeRequestDto;
+import com.integra.onlinegaming.dto.RegisterRequestDto;
 import com.integra.onlinegaming.model.Employee;
+import com.integra.onlinegaming.model.Registration;
 import com.integra.onlinegaming.service.EmployeeService;
-
 
 @Service
 @Transactional
-public class EmployeeServiceImpl implements EmployeeService  {
+public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	private EmployeeDao employeeDAO;
- 
 
 	public void persist(EmployeeRequestDto employeeRequestDto) {
 		Employee employee = new Employee();
@@ -35,21 +36,33 @@ public class EmployeeServiceImpl implements EmployeeService  {
 		employee.setPhoneNumber(employeeRequestDto.getPhoneNumber());
 
 		DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
-				Date date = null;
-				try {
-					date = format.parse(employeeRequestDto.getDob());
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				 
+		Date date = null;
+		try {
+			date = format.parse(employeeRequestDto.getDob());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		employee.setDob(date);
 		if (employee != null) {
 			employeeDAO.save(employee);
 		}
 	}
-		public List<EmployeeRequestDto> getDeatils() {
-			return null;
-	}
 
+	public List<EmployeeRequestDto> getDeatils() {
+			List<Employee> listempregistration =employeeDAO.getDetails();
+			List<EmployeeRequestDto> listRegisterReqestDto = new ArrayList<EmployeeRequestDto>();
+			listempregistration.forEach(empreg -> {
+				EmployeeRequestDto employeeRequestDto = new EmployeeRequestDto();
+				 employeeRequestDto.setEname(empreg.getEname());
+				employeeRequestDto.setAddress(empreg.getAddress());
+				employeeRequestDto.setAge(empreg.getAge());
+				employeeRequestDto.setEmail(empreg.getEmail());
+				employeeRequestDto.setGender(empreg.getGender());
+				employeeRequestDto.setPhoneNumber(empreg.getPhoneNumber());
+	});
+			return listRegisterReqestDto;
+
+	}
 }
