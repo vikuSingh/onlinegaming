@@ -20,18 +20,21 @@ import com.integra.onlinegaming.service.EmployeeService;
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
+	private static final String FAIL = "fail";
+	private static final String PASS = "success";
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public ResponseEntity<String> persist(@RequestBody EmployeeRequestDto employeeRequestDto) {
+	public String persist(@RequestBody EmployeeRequestDto employeeRequestDto) {
 		if (employeeRequestDto != null) {
 			employeeService.persist(employeeRequestDto);
-			return new ResponseEntity<String>(HttpStatus.OK);
+			return PASS;
 		}
-		return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+		return FAIL;
 	}
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/getEmp", method = RequestMethod.GET)
 	public List<EmployeeRequestDto> getProfileDtails() {
 		List<EmployeeRequestDto> list = employeeService.getDeatils();
 		return list;
-}
+	}
 }
