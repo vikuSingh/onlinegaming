@@ -1,7 +1,5 @@
 package com.integra.onlinegaming.dto;
 
-import javax.persistence.Column;
-
 public class CartRequestDto {
 
 	private String item;

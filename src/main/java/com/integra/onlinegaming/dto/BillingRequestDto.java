@@ -1,10 +1,5 @@
 package com.integra.onlinegaming.dto;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Id;
-
 public class BillingRequestDto {		
 		
 		private String firstName;
