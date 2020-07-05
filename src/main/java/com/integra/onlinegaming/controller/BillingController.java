@@ -23,15 +23,15 @@ public class BillingController {
 	private BillingService billingDetailsService;
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public ResponseEntity<BillingRequestDto> save(@RequestBody BillingRequestDto billingDetailsRequestDto) {
+	public int save(@RequestBody BillingRequestDto billingDetailsRequestDto) {
 
 		
-		
+		int result=0;
 		if (billingDetailsRequestDto != null) {
-			billingDetailsService.persist(billingDetailsRequestDto);
-			return new ResponseEntity<BillingRequestDto>(HttpStatus.OK);
+			result= billingDetailsService.persist(billingDetailsRequestDto);
+			
 		}
-		return new ResponseEntity<BillingRequestDto>(HttpStatus.INTERNAL_SERVER_ERROR);
+		return result;
 	}
 }
 

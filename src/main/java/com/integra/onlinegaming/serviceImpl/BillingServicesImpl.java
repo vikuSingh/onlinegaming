@@ -18,9 +18,9 @@ public class BillingServicesImpl implements BillingService {
 	@Autowired
 	private BillingDao billingDetailsDao;
 
-	public Integer persist(BillingRequestDto billingDetailsRequestDto) {
+	public int persist(BillingRequestDto billingDetailsRequestDto) {
 
-		Serializable serializable = null;
+		int result = 0;
 
 		Billing billingDetails = new Billing();
 		billingDetails.setFirstName(billingDetailsRequestDto.getFirstName());
@@ -35,9 +35,10 @@ public class BillingServicesImpl implements BillingService {
 		billingDetails.setTotal(billingDetailsRequestDto.getTotal());
 
 		if (billingDetails != null) {
-			serializable = billingDetailsDao.save(billingDetails);
+			result = billingDetailsDao.save(billingDetails);
+			result=1;
 		}
-		return serializable.hashCode();
+		return result;
 	}
 
 }

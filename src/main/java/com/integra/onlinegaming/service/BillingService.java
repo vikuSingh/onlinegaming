@@ -5,5 +5,5 @@ import com.integra.onlinegaming.dto.BillingRequestDto;
 
 public interface BillingService {
 
-	public Integer persist(BillingRequestDto billingDetails);
+	public int persist(BillingRequestDto billingDetails);
 }

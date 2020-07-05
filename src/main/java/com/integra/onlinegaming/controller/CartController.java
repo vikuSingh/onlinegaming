@@ -23,13 +23,15 @@ public class CartController {
 	private CartService cartDetailsService;
 
 	@RequestMapping(value="/save", method = RequestMethod.POST)
-	public ResponseEntity<CartRequestDto> save(@RequestBody CartRequestDto cartDetailsRequestDto) {
-
+	public int save(@RequestBody CartRequestDto cartDetailsRequestDto) {
+   
+		int result=0;
+		
 		if (cartDetailsRequestDto != null) {
-			cartDetailsService.persist(cartDetailsRequestDto);
-			return new ResponseEntity<CartRequestDto>(HttpStatus.OK);
+			result=cartDetailsService.persist(cartDetailsRequestDto);
+			
 		}
-		return new ResponseEntity<CartRequestDto>(HttpStatus.INTERNAL_SERVER_ERROR);
+		return result;
 	}
 
 }

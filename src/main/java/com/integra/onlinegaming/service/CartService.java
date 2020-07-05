@@ -4,6 +4,6 @@ import com.integra.onlinegaming.dto.CartRequestDto;
 
 public interface CartService {
 	
-	public Integer persist(CartRequestDto cartDetailsRequestDto);
+	public int persist(CartRequestDto cartDetailsRequestDto);
 
 }

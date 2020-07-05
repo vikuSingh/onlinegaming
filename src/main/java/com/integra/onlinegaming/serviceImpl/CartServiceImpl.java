@@ -1,7 +1,5 @@
 package com.integra.onlinegaming.serviceImpl;
 
-import java.io.Serializable;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +16,7 @@ public class CartServiceImpl implements CartService {
 	@Autowired
 	private CartDao cartDetailsDao;
 
-	public Integer persist(CartRequestDto cartDetailsRequestDto) {
+	public int persist(CartRequestDto cartDetailsRequestDto) {
 
 		Cart cartDetails = new Cart();
 		cartDetails.setItem(cartDetailsRequestDto.getItem());
@@ -27,14 +25,14 @@ public class CartServiceImpl implements CartService {
 		cartDetails.setCouponCode(cartDetailsRequestDto.getCouponCode());
 		cartDetails.setTotal(cartDetailsRequestDto.getTotal());
 
-		Serializable serializable = null;
+		int result = 0;
 		if (cartDetails != null) {
 
-			serializable = cartDetailsDao.save(cartDetails);
-
+			result = cartDetailsDao.save(cartDetails);
+			 result=1;
 		}
-		return serializable.hashCode();
-
+		
+		return result;
 	}
 
 }

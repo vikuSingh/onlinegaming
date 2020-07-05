@@ -1,6 +1,7 @@
 package com.integra.onlinegaming.daoImpl;
 
 import java.io.Serializable;
+import java.sql.SQLException;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,11 +17,16 @@ public class CartDaoImpl implements CartDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public Integer save(Cart cartDetails) {
+	public Integer save(Cart cartDetails)  {
 
+		Serializable serializable=null;
 		Session session = this.sessionFactory.getCurrentSession();
-		Serializable serializable = session.save(cartDetails);
+		 serializable = session.save(cartDetails);
+		 
 		return serializable.hashCode();
+		
+		
+		
 	}
 
 }
