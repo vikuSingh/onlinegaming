@@ -33,7 +33,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 			employeeDAO.save(employee);
 		}
 	}
+	public void edit(EmployeeRequestDto employeeRequestDto) {
+		employeeDAO.upateEmployee(employeeRequestDto);
+	}
 
+	public void remove(Long eid) {
+		employeeDAO.deleteEmployee(eid);
+	}
 	public List<EmployeeRequestDto> getDeatils() {
 		List<Employee> listempregistration = employeeDAO.getDetails();
 		List<EmployeeRequestDto> listRegisterReqestDto = new ArrayList<EmployeeRequestDto>();
