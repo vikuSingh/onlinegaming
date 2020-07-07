@@ -28,7 +28,7 @@ public class Employee {
 
 	@Id
 	@Column(name = "EID")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	public Long getEid() {
 		return eid;
 	}
