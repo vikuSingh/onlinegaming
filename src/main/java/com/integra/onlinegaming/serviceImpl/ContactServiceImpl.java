@@ -1,6 +1,8 @@
 package com.integra.onlinegaming.serviceImpl;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,10 +24,10 @@ public class ContactServiceImpl implements ContactService {
 		
 		Contact contact=new Contact();
 		
-		contact.setFirstName(contactRequestDto.getFirstName());
-		contact.setLastName(contactRequestDto.getLastName());
+		contact.setFullName(contactRequestDto.getFullName());
+		 
 		contact.setMobileNo(contactRequestDto.getMobileNo());
-		contact.setCountry(contactRequestDto.getCountry());
+		contact.setCity(contactRequestDto.getCity());
 		contact.setSubject(contactRequestDto.getSubject());
 		
 		
@@ -37,5 +39,24 @@ public class ContactServiceImpl implements ContactService {
 		
 		return contact1.hashCode();
 		}
+	
+	public List<ContactRequestDto> getDeatils() {
+		List<Contact> listContact = contactdao.getDetails();
+		List<ContactRequestDto> listContactRequestDto = new ArrayList<ContactRequestDto>();
+		listContact.forEach(reg -> {
+			ContactRequestDto contactRequestDto = new ContactRequestDto();
+			contactRequestDto.setFullName(reg.getFullName());
+			
+			contactRequestDto.setMobileNo(reg.getMobileNo());
+			contactRequestDto.setCity(reg.getCity());
+			contactRequestDto.setSubject(reg.getSubject());
+			
+			});
 
+		
+		return listContactRequestDto;
+	}
 }
+
+
+

@@ -3,10 +3,9 @@ package com.integra.onlinegaming.dto;
 public class ContactRequestDto {
 	
 	private long contactId;
-	private String firstName;
-	private String lastName;
+	private String fullName;
 	private String mobileNo;
-	private String country;
+	private String city;
 	private String subject;
 	
 	public ContactRequestDto() {
@@ -21,22 +20,15 @@ public class ContactRequestDto {
 		this.contactId = contactId;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
+	
 	public String getMobileNo() {
 		return mobileNo;
 	}
@@ -45,12 +37,12 @@ public class ContactRequestDto {
 		this.mobileNo = mobileNo;
 	}
 
-	public String getCountry() {
-		return country;
+	public String getCity() {
+		return city;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	public String getSubject() {
@@ -63,8 +55,9 @@ public class ContactRequestDto {
 
 	@Override
 	public String toString() {
-		return "ContactRequestDto [contactId=" + contactId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", mobileNo=" + mobileNo + ", country=" + country + ", subject=" + subject + "]";
+		return "ContactRequestDto [contactId=" + contactId + ", fullName=" + fullName + ", mobileNo=" + mobileNo
+				+ ", city=" + city + ", subject=" + subject + "]";
 	}
+
 	
 }

@@ -1,8 +1,8 @@
 package com.integra.onlinegaming.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,17 +22,25 @@ public class ContactController {
 	
 
 	@Autowired
-		private ContactService contactDetailsService;
+		private ContactService contactService;
+	private static final String FAIL = "fail";
+	private static final String PASS = "success";
        
 	 @RequestMapping(value="/save", method = RequestMethod.POST)
-		public ResponseEntity<ContactRequestDto>save(@RequestBody ContactRequestDto contactDetailsRequestDto) {
+		public String save(@RequestBody ContactRequestDto contactRequestDto) {
 
-			if (contactDetailsRequestDto != null) {
-				contactDetailsService.persist(contactDetailsRequestDto);
-				return new ResponseEntity<ContactRequestDto>(HttpStatus.OK);
+			if (contactRequestDto != null) {
+				contactService.persist(contactRequestDto);
+			
+				return PASS;
 			}
-			return new ResponseEntity<ContactRequestDto>(HttpStatus.INTERNAL_SERVER_ERROR);
+			return FAIL;
 		}
-	
+	 
+	 @RequestMapping(value = "/getContact", method = RequestMethod.GET)
+		public List<ContactRequestDto> getProfileDtails() {
+			List<ContactRequestDto> list = contactService.getDeatils();
+			return list;
+		}
 	
 	}

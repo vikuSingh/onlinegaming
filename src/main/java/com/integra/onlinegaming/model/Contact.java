@@ -13,34 +13,33 @@ public class Contact {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private int contactId;
-	private String firstName;
-	private String lastName;
+	private String fullName;
 	private String mobileNo;
-	private String country;
+	private String city;
 	private String subject;
 
 	public Contact() {
 		// TODO Auto-generated constructor stub
 	}
-     
-	@Column(name="FIRST_NAME")
-	public String getFirstName() {
-		return firstName;
+	
+    @Column(name="CONTACT-ID")
+	
+	public int getContactId() {
+		return contactId;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setContactId(int contactId) {
+		this.contactId = contactId;
 	}
-     
-	@Column(name="LAST_NAME")
-	public String getLastName() {
-		return lastName;
+	@Column(name="FULL_NAME")
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
-     
+
 	@Column(name="MOBILE_NO")
 	public String getMobileNo() {
 		return mobileNo;
@@ -50,14 +49,14 @@ public class Contact {
 		this.mobileNo = mobileNo;
 	}
     
-	@Column(name="COUNTRY")
-	public String getCountry() {
-		return country;
+	@Column(name="CITY")
+	public String getCity() {
+		return city;
 	}
 
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setCity(String city) {
+		this.city = city;
 	}
     @Column(name="SUBJECT")
 	public String getSubject() {
@@ -71,9 +70,11 @@ public class Contact {
 
 	@Override
 	public String toString() {
-		return "Contact [firstName=" + firstName + ", lastName=" + lastName + ", mobileNo=" + mobileNo + ", country="
-				+ country + ", subject=" + subject + "]";
+		return "Contact [contactId=" + contactId + ", fullName=" + fullName + ", mobileNo=" + mobileNo + ", city="
+				+ city + ", subject=" + subject + "]";
 	}
+
+	
 
 	
 	}
