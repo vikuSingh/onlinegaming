@@ -1,6 +1,8 @@
 package com.integra.onlinegaming.model;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +19,7 @@ public class Billing implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	
-	private int billingId;	
+	private long billingId;	
 	private String firstName;	
 	private String lastName;	
 	private String city;	
@@ -27,7 +29,11 @@ public class Billing implements Serializable {
 	private String product;	
 	private double price;	
 	private int subTotal;	
-	private int total;
+	private int total;	
+	private Date orderDate;
+	private boolean billingStatus;
+
+	
 
 	public Billing() {
 		// TODO Auto-generated constructor stub
@@ -36,11 +42,11 @@ public class Billing implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="BILLING_ID")
-	public int getBillingId() {
+	public long getBillingId() {
 		return billingId;
 	}
 
-	public void setBillingId(int billingId) {
+	public void setBillingId(long billingId) {
 		this.billingId = billingId;
 	}
 
@@ -116,6 +122,15 @@ public class Billing implements Serializable {
 		this.price = price;
 	}
 
+	@Column(name="ORDER_DATE")
+	public Date getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
+	}
+	
 	@Column(name = "SUB_TOTAL")
 	public int getSubTotal() {
 		return subTotal;
@@ -132,6 +147,15 @@ public class Billing implements Serializable {
 
 	public void setTotal(int total) {
 		this.total = total;
+	}
+
+	@Column(name="BILLING_STATUS")
+	public boolean getBillingStatus() {
+		return billingStatus;
+	}
+
+	public void setBillingStatus(boolean billingStatus) {
+		this.billingStatus = billingStatus;
 	}
 
 	@Override

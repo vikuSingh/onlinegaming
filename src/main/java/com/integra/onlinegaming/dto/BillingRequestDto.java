@@ -1,7 +1,11 @@
 package com.integra.onlinegaming.dto;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class BillingRequestDto {		
 		
+	    private long billingId;	
 		private String firstName;
 		private String lastName;
 		private String city;
@@ -10,11 +14,21 @@ public class BillingRequestDto {
 		private long phoneNo;
 		private String product;
 		private double price;
+		private Date orderDate;
 		private int subTotal;
 		private int total;
+		private boolean billingStatus;
 		
 		public BillingRequestDto() {
 			// TODO Auto-generated constructor stub
+		}
+
+		public long getBillingId() {
+			return billingId;
+		}
+
+		public void setBillingId(long billingId) {
+			this.billingId = billingId;
 		}
 
 		public String getFirstName() {
@@ -80,6 +94,14 @@ public class BillingRequestDto {
 		public void setPrice(double price) {
 			this.price = price;
 		}
+		
+		public Date getOrderDate() {
+			return orderDate;
+		}
+
+		public void setOrderDate(Date orderDate) {
+			this.orderDate = orderDate;
+		}
 
 		public int getSubTotal() {
 			return subTotal;
@@ -97,15 +119,23 @@ public class BillingRequestDto {
 			this.total = total;
 		}
 
+		public boolean getBillingStatus() {
+			return billingStatus;
+		}
+
+		public void setBillingStatus(boolean billingStatus) {
+			this.billingStatus = billingStatus;
+		}
+
 		@Override
 		public String toString() {
-			return "BillingDetails [firstName=" + firstName + ", lastName=" + lastName + ", city=" + city + ", pinCode="
-					+ pinCode + ", email=" + email + ", phoneNumber=" + phoneNo + ", product=" + product + ", price="
-					+ price + ", subTotal=" + subTotal + ", total=" + total + "]";
+			return "BillingRequestDto [billingId=" + billingId + ", firstName=" + firstName + ", lastName=" + lastName
+					+ ", city=" + city + ", pinCode=" + pinCode + ", email=" + email + ", phoneNo=" + phoneNo
+					+ ", product=" + product + ", price=" + price + ", orderDate=" + orderDate + ", subTotal="
+					+ subTotal + ", total=" + total + ", billingStatus=" + billingStatus + "]";
 		}
-		
-		
 
+		
 	}
 
 
